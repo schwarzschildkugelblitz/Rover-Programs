@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Video Streams</title>
+    <style>
+      .load {
+        float: right;
+        width: 300px;
+        border: 1px solid black;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        padding: 10px;
+      }
+      .load th, .load td {
+        padding: 6px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Video Streams</h1>
+    <img src="{{ url_for('video_feed') }}">
+    <img src="{{ url_for('video_feed1') }}">
+    <img src="{{ url_for('video_feed2') }}">
+    <img src="{{ url_for('video_feed3') }}">
+  </body>
+</html>
