@@ -120,6 +120,6 @@ class Propulsion:
             
 
         data = json.dumps(self.getData())
-        self.sendtoard(data)
+        #self.sendtoard(data)
 
 
