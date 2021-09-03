@@ -97,7 +97,7 @@ class Robotic_Arm:
         motors.append(0)
         data.update({"m" : motors})
         data.update({"kill" : 0})
-        data.update("req" : 1)
+        data.update({"req" : 1})
         return data
 
     def printRoboticArmVariables(self):
