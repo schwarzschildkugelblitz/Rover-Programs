@@ -125,7 +125,7 @@ class Robotic_Arm:
         StrclawRoll = dataFromBase[index5+1:index6]
         self.clawRoll = self.strToInt(StrclawRoll);
         
-        index7 - dataFromBase.index(',',index6+1)
+        index7 = dataFromBase.index(',',index6+1)
         StrclawOpenClose = dataFromBase[index6+1:index7]
         self.clawOpenClose = self.strToInt(StrclawOpenClose);
         
