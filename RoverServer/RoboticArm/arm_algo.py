@@ -14,7 +14,7 @@ class Robotic_Arm:
         self.clawOpenClose = 0
         self.s = socket.socket()
         self.host = ""
-        self.port = 9999
+        self.port = 9998
         while True:
             try:  
                 print("Binding the Port: " + str(self.port))
@@ -124,7 +124,8 @@ class Robotic_Arm:
         StrclawRoll = dataFromBase[index5+1:index6]
         self.clawRoll = strToInt(StrclawRoll);
         
-        StrclawOpenClose = dataFromBase[index6+1:]
+        index7 - dataFromBase.index(',',index6+1)
+        StrclawOpenClose = dataFromBase[index6+1:index7]
         self.clawOpenClose = strToInt(StrclawOpenClose);
         
         self.printRoboticArmVariables();
