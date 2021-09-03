@@ -37,6 +37,7 @@ class Robotic_Arm:
         self.conn.close()
         self.ser.close()
         '''
+        self.read_commands()
 
     def read_commands(self):
         while True:
@@ -106,27 +107,27 @@ class Robotic_Arm:
         
         index2 = dataFromBase.index(',',index1+1)
         StrbaseMotorSpeed = dataFromBase[index1+1:index2]
-        self.baseMotorSpeed = strToInt(StrbaseMotorSpeed);
+        self.baseMotorSpeed = self.strToInt(StrbaseMotorSpeed);
         
         index3 = dataFromBase.index(',',index2+1)
         StrbaseActuator = dataFromBase[index2+1:index3]
-        self.baseActuator = strToInt(StrbaseActuator);
+        self.baseActuator = self.strToInt(StrbaseActuator);
 
         index4 = dataFromBase.index(',',index3+1)
         StrarmActuator = dataFromBase[index3+1:index4]
-        self.armActuator = strToInt(StrarmActuator);
+        self.armActuator = self.strToInt(StrarmActuator);
         
         index5 = dataFromBase.index(',',index4+1)
         StrclawPitch = dataFromBase[index4+1:index5]
-        self.clawPitch = strToInt(StrclawPitch);
+        self.clawPitch = self.strToInt(StrclawPitch);
         
         index6 = dataFromBase.index(',',index5+1)
         StrclawRoll = dataFromBase[index5+1:index6]
-        self.clawRoll = strToInt(StrclawRoll);
+        self.clawRoll = self.strToInt(StrclawRoll);
         
         index7 - dataFromBase.index(',',index6+1)
         StrclawOpenClose = dataFromBase[index6+1:index7]
-        self.clawOpenClose = strToInt(StrclawOpenClose);
+        self.clawOpenClose = self.strToInt(StrclawOpenClose);
         
         self.printRoboticArmVariables();
         data = json.dumps(self.getData())

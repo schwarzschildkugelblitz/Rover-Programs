@@ -33,6 +33,7 @@ class Propulsion:
         self.conn.close()
         self.ser.close()
         '''
+        self.read_commands()
 
     def read_commands(self):
         while True:
@@ -93,14 +94,14 @@ class Propulsion:
         index2 = dataFromBase.index(',',index1 + 1)
             
         motorspeed = dataFromBase[index1 + 1 : index2]
-        a = strToInt(motorspeed)
+        a = self.strToInt(motorspeed)
         self.motorspeed1 = a
         self.motorspeed2 = a
         
         motorspeed = dataFromBase[index2 + 1 :]
             
         print(motorspeed)
-        b = strToInt(motorspeed)
+        b = self.strToInt(motorspeed)
             
         self.motorspeed1 -= b
         self.motorspeed2 += b
