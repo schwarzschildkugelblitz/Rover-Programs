@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+body{
+    /* margin-top: 30px; */
+    background-color: rgba(22, 22, 22, 1);
+    font-family: "Poppins" , sans-serif;
+    /* height: 100 vh;
+    width: 100 vw; */
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
+}
+
+  /* The grid: Four equal columns that floats next to each other */
+.column {
+  width: 100%;
+  padding: 5vw;
+  display: flex;
+  justify-content: space-around;
+  margin-top: -1.5em;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.container {
+  position: relative;
+  display: none;
+  align-content: center;
+  margin-left: 5vw;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  position: absolute;
+  top: 0px;
+  right: 50px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.small {
+  width : 45%;
+  height : 20vh;
+  object-fit: cover;
+  border-radius: 8px;
+  padding: 3px;
+  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0);
+  border: 1px solid #019E66;
+}
+
+.big {
+  width: 90vw;
+  height: 40vh;
+  object-fit: cover;
+  border-radius: 8px;
+  padding: 3px;
+  box-shadow: 5px 5px 5px 5px rgb(0, 0, 0);
+  border: 1px solid #019E66;
+}
+
+.VS {
+  color:#fff;
+  font-size: 20px;
+  font-weight: 400;
+  white-space: nowrap;
+  margin-top: 1em;
+}

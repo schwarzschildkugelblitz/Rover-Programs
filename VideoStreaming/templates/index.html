@@ -1,26 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Video Streams</title>
-    <style>
-      .load {
-        float: right;
-        width: 300px;
-        border: 1px solid black;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        padding: 10px;
-      }
-      .load th, .load td {
-        padding: 6px;
-        text-align: center;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" media="screen" href="{{ url_for('static', filename='styles/style.css')}}" />
   </head>
   <body>
-    <h1>Video Streams</h1>
-    <img src="{{ url_for('video_feed') }}">
-    <img src="{{ url_for('video_feed1') }}">
-    <img src="{{ url_for('video_feed2') }}">
-    <img src="{{ url_for('video_feed3') }}">
+    <center>
+      <h1 class = "VS"> Video Streams </h1> 
+    </center>
+      <div class="column">
+        <img src="{{ url_for('video_feed') }}" alt="Nature" onclick="myFunction(this);" class = "small">
+        <img src="{{ url_for('video_feed1') }}" alt="Snow" onclick="myFunction(this);" class = "small">
+      </div>
+      <div class="column">
+        <img src="{{ url_for('video_feed2') }}" alt="Mountains" onclick="myFunction(this);" class = "small">
+        <img src="{{ url_for('video_feed3') }}" alt="Lights" onclick="myFunction(this);" class = "small">
+      </div>
+    <!-- The expanding image container -->
+    <div class="container">
+      <!-- Close the image -->
+      <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    
+      <!-- Expanded image -->
+      <img id="expandedImg" class = "big">
+    
+      <!-- Image text -->
+      <div id="imgtext"></div>
+    </div>
+    <script>
+      function myFunction(imgs) {
+        var expandImg = document.getElementById("expandedImg");
+        var imgText = document.getElementById("imgtext");
+        expandImg.src = imgs.src;
+        imgText.innerHTML = imgs.alt;
+        expandImg.parentElement.style.display = "block";
+      }
+      </script>
   </body>
 </html>

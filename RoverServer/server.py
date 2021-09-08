@@ -1,11 +1,12 @@
-from flask import Flask
+from flask import Flask, send_file
 import argparse
 import datetime
 import time
 from Propulsion import propulsion_algo
 from RoboticArm import arm_algo
+import cv2
+import time
 app = Flask(__name__)
-
 @app.route("/propulsion")
 def propulsion():
 	prop = propulsion_algo.Propulsion()
@@ -21,6 +22,15 @@ def robotic_arm():
 @app.route("/science")
 def science():
 	return "Started Science module!"
+
+@app.route("/capture")
+def capture():
+	camera = cv2.VideoCapture(0)
+	time.sleep(2)
+	ret, frame = camera.read()
+	cv2.imwrite("file.jpg", frame)
+	camera.release()
+	return send_file('file.jpg', as_attachment = True, attachment_filename = 'file.jpg', mimetype = 'image/jpeg')
 
 if __name__ == '__main__':
 	# construct the argument parser and parse command line arguments
