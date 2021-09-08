@@ -1,4 +1,3 @@
-from imutils.video import VideoStream
 from flask import Response
 from flask import Flask
 from flask import render_template
@@ -10,12 +9,18 @@ import imutils
 import time
 import cv2
 from VideoStreaming import algo
-
+width = 1280
+height = 720
+flip = 2
+camSet = 'nvarguscamerasrc sensor-id=0 ee-mode=1 ee-strength=0 tnr-mode=2 tnr-strength=1 wbmode=3 ! video/x-raw(memory:NVMM), width=3264, height=2464, framerate=21/1,format=NV12 ! nvvidconv flip-method='+str(flip)+' ! video/x-raw, width='+str(width)+', height='+str(height)+', format=BGRx ! videoconvert ! video/x-raw, format=BGR ! videobalance contrast=1.3 brightness=-.2 saturation=1.2 ! appsink '
 app = Flask(__name__)
-cam1 = algo.videostream(0)
+
+cam1 = algo.videostream(camSet)
+'''
 cam2 = algo.videostream(0)
 cam3 = algo.videostream(0)
 cam4 = algo.videostream(0)
+'''
 @app.route("/")
 def index():
 	# return the rendered template
@@ -24,7 +29,7 @@ def index():
 @app.route("/video_feed")
 def video_feed():
 	return cam1.video_feed()
-
+'''
 @app.route("/video_feed1")
 def video_feed1():
 	return cam2.video_feed()
@@ -36,7 +41,7 @@ def video_feed2():
 @app.route("/video_feed3")
 def video_feed3():
 	return cam4.video_feed()
-
+'''
 if __name__ == '__main__':
 	# construct the argument parser and parse command line arguments
 	ap = argparse.ArgumentParser()
