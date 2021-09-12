@@ -29,11 +29,12 @@ class Propulsion:
                bytesize=serial.EIGHTBITS, 
                stopbits=serial.STOPBITS_ONE
             )
-        self.read_commands() 
+        '''
+        self.read_commands()
+        '''
         self.conn.close()
         self.ser.close()
         '''
-        self.read_commands()
 
     def read_commands(self):
         while True:
@@ -81,12 +82,12 @@ class Propulsion:
 
     def getData(self):
         data = dict()
-        data.update({"fl" : self.motorspeed2})
-        data.update({"fr" : self.motorspeed1})
-        data.update({"bl" : self.motorspeed2})
-        data.update({"br" : self.motorspeed1})
-        data.update({"kill": 0})
-        data.update({"req": 1})
+        data.update({"fl" : str(self.motorspeed2)})
+        data.update({"fr" : str(self.motorspeed1)})
+        data.update({"bl" : str(self.motorspeed2)})
+        data.update({"br" : str(self.motorspeed1)})
+        data.update({"kill": "0"})
+        data.update({"req": "1"})
         return data
 
     def propulsion(self, dataFromBase, index1):

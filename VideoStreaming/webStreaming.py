@@ -19,16 +19,22 @@ cam1 = algo.videostream(camSet)
 '''
 cam2 = algo.videostream(0)
 cam3 = algo.videostream(0)
+# cam4 is the panaromic camera
 cam4 = algo.videostream(0)
+cam5 = algo.videostream(0)
+cam6 = algo.videostream(0)
 '''
 @app.route("/")
 def index():
-	# return the rendered template
 	return render_template("index.html")
 
 @app.route("/video_feed")
 def video_feed():
 	return cam1.video_feed()
+
+@app.route("/science")
+def science():
+	return render_template("index_science.html")
 '''
 @app.route("/video_feed1")
 def video_feed1():
@@ -41,6 +47,14 @@ def video_feed2():
 @app.route("/video_feed3")
 def video_feed3():
 	return cam4.video_feed()
+
+@app.route("/video_feed4")
+def video_feed4():
+	return cam5.video_feed()
+
+@app.route("/video_feed5")
+def video_feed5():
+	return cam6.video_feed()
 '''
 if __name__ == '__main__':
 	# construct the argument parser and parse command line arguments

@@ -23,8 +23,21 @@ def robotic_arm():
 def science():
 	return "Started Science module!"
 
-@app.route("/capture")
-def capture():
+@app.route("/control")
+def science():
+	return "Started Control module!"
+
+@app.route("/capture_spectro")
+def capture_spectro():
+	camera = cv2.VideoCapture(0)
+	time.sleep(2)
+	ret, frame = camera.read()
+	cv2.imwrite("file.jpg", frame)
+	camera.release()
+	return send_file('file.jpg', as_attachment = True, attachment_filename = 'file.jpg', mimetype = 'image/jpeg')
+
+@app.route("/capture_micro")
+def capture_micro():
 	camera = cv2.VideoCapture(0)
 	time.sleep(2)
 	ret, frame = camera.read()

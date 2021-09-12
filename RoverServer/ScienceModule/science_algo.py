@@ -4,7 +4,7 @@ import json
 import time
 import threading
 
-class Robotic_Arm:
+class Science:
     def __init__(self):
         self.baseMotorSpeed = 0
         self.baseActuator = 0
@@ -14,7 +14,7 @@ class Robotic_Arm:
         self.clawOpenClose = 0
         self.s = socket.socket()
         self.host = ""
-        self.port = 9998
+        self.port = 9997
         while True:
             try:  
                 print("Binding the Port: " + str(self.port))
